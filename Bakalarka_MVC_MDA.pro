@@ -14,12 +14,20 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     Base/datatype.cpp \
     Widgets/projectfileswidget.cpp \
-    Base/projectfilemodel.cpp
+    Base/projectfilemodel.cpp \
+    Scene/diagramtextitem.cpp \
+    Scene/diagramscene.cpp \
+    Scene/diagramitem.cpp \
+    Scene/arrow.cpp
 
 HEADERS  += mainwindow.h \
     Base/datatype.h \
     Widgets/projectfileswidget.h \
-    Base/projectfilemodel.h
+    Base/projectfilemodel.h \
+    Scene/diagramtextitem.h \
+    Scene/diagramscene.h \
+    Scene/diagramitem.h \
+    Scene/arrow.h
 
 FORMS    += mainwindow.ui \
     Widgets/projectfileswidget.ui

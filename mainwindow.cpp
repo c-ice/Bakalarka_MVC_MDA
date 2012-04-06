@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include "Widgets/projectfileswidget.h"
 #include <Qt>
-
+#include <QGraphicsView>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,6 +18,9 @@ MainWindow::MainWindow(QWidget *parent) :
     m_projectFilesMode->setRootPath("");
     projectFilesWidget = new ProjectFilesWidget(m_projectFilesMode, m_projectFilesModelMenu, this);
     addDockWidget(Qt::LeftDockWidgetArea, projectFilesWidget);
+    scenes.append(new DiagramScene(m_itemMenu, this));
+    scenes.first()->name = "Test tab";
+    ui->tabWidget->addTab(new QGraphicsView(scenes.first()), scenes.first()->name);
 }
 
 MainWindow::~MainWindow()
@@ -28,6 +31,7 @@ MainWindow::~MainWindow()
 void MainWindow::setupMenus()
 {
     m_projectFilesModelMenu = new QMenu("File", this);
+    m_itemMenu = new QMenu(this);
 }
 
 void MainWindow::setupActions()
