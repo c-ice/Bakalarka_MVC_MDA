@@ -18,7 +18,9 @@ SOURCES += main.cpp\
     Scene/diagramtextitem.cpp \
     Scene/diagramscene.cpp \
     Scene/diagramitem.cpp \
-    Scene/arrow.cpp
+    Scene/arrow.cpp \
+    Widgets/palletewidget.cpp \
+    Base/elementtoolbutton.cpp
 
 HEADERS  += mainwindow.h \
     Base/datatype.h \
@@ -27,10 +29,13 @@ HEADERS  += mainwindow.h \
     Scene/diagramtextitem.h \
     Scene/diagramscene.h \
     Scene/diagramitem.h \
-    Scene/arrow.h
+    Scene/arrow.h \
+    Widgets/palletewidget.h \
+    Base/elementtoolbutton.h
 
 FORMS    += mainwindow.ui \
-    Widgets/projectfileswidget.ui
+    Widgets/projectfileswidget.ui \
+    Widgets/palletewidget.ui
 
 RESOURCES += \
     images.qrc
