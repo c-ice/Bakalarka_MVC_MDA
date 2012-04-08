@@ -6,6 +6,7 @@
 #include "Base/projectfilemodel.h"
 #include <QVector>
 #include "Scene/diagramscene.h"
+#include <QButtonGroup>
 
 namespace Ui {
 class MainWindow;
@@ -22,13 +23,20 @@ public:
     void setupMenus();
     void setupActions();
     QVector<DiagramScene*> scenes;
+    DiagramScene *activeScene();
+    void createToolBox();
+
 private:
     Ui::MainWindow *ui;
     ProjectFilesWidget *projectFilesWidget;
     ProjectFileModel *m_projectFilesMode;
 
+    QButtonGroup *toolboxButtonGroup;
     QMenu *m_projectFilesModelMenu;
     QMenu *m_itemMenu;
+
+private slots:
+    void toolboxButtonGroupClicked(int id);
 };
 
 #endif // MAINWINDOW_H

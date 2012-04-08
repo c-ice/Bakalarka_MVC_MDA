@@ -3,7 +3,7 @@
 #include <QGridLayout>
 #include <QLabel>
 
-ElementToolButton::ElementToolButton(DiagramItem *diagramItem, QWidget *parent) :
+ElementToolButton::ElementToolButton(DiagramItem *diagramItem, QButtonGroup *buttonGroup, QWidget *parent) :
     QWidget(parent)
 {
     QIcon icon(diagramItem->image());
@@ -12,6 +12,7 @@ ElementToolButton::ElementToolButton(DiagramItem *diagramItem, QWidget *parent) 
     button->setIcon(icon);
     button->setIconSize(QSize(50, 50));
     button->setCheckable(true);
+    buttonGroup->addButton(button);
 
     QGridLayout *layout = new QGridLayout;
     layout->addWidget(button, 0, 0, Qt::AlignHCenter);
