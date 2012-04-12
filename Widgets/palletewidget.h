@@ -14,8 +14,6 @@ class PalleteWidget : public QDockWidget
 public:
     explicit PalleteWidget(QWidget *parent = 0);
     ~PalleteWidget();
-    
-private:
     Ui::PalleteWidget *ui;
 };
 

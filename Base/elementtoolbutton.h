@@ -10,7 +10,7 @@ class ElementToolButton : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ElementToolButton(DiagramItem *diagramItem, QButtonGroup *buttonGroup, QWidget *parent = 0);
+    explicit ElementToolButton(const QPixmap &image, QButtonGroup *buttonGroup, const QString &text, QWidget *parent);
 
 signals:
     

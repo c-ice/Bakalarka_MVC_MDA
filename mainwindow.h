@@ -7,6 +7,7 @@
 #include <QVector>
 #include "Scene/diagramscene.h"
 #include <QButtonGroup>
+#include "Widgets/palletewidget.h"
 
 namespace Ui {
 class MainWindow;
@@ -24,11 +25,12 @@ public:
     void setupActions();
     QVector<DiagramScene*> scenes;
     DiagramScene *activeScene();
-    void createToolBox();
+    void setupToolBox();
 
 private:
     Ui::MainWindow *ui;
     ProjectFilesWidget *projectFilesWidget;
+    PalleteWidget *palleteWidget;
     ProjectFileModel *m_projectFilesMode;
 
     QButtonGroup *toolboxButtonGroup;

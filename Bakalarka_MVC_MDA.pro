@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     Scene/diagramitem.cpp \
     Scene/arrow.cpp \
     Widgets/palletewidget.cpp \
-    Base/elementtoolbutton.cpp
+    Base/elementtoolbutton.cpp \
+    Scene/statebox.cpp
 
 HEADERS  += mainwindow.h \
     Base/datatype.h \
@@ -31,7 +32,8 @@ HEADERS  += mainwindow.h \
     Scene/diagramitem.h \
     Scene/arrow.h \
     Widgets/palletewidget.h \
-    Base/elementtoolbutton.h
+    Base/elementtoolbutton.h \
+    Scene/statebox.h
 
 FORMS    += mainwindow.ui \
     Widgets/projectfileswidget.ui \

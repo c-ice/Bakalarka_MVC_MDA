@@ -1,9 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "Widgets/projectfileswidget.h"
+#include "ui_palletewidget.h"
+#include "Base/elementtoolbutton.h"
+
 #include <Qt>
 #include <QGraphicsView>
 #include <QAbstractButton>
+
 
 const int InsertTextButton = 10;
 
@@ -15,12 +19,17 @@ MainWindow::MainWindow(QWidget *parent) :
     // Important ordering
     setupMenus();
     setupActions();
+
+    palleteWidget = new PalleteWidget(this);
+    addDockWidget(Qt::LeftDockWidgetArea, palleteWidget);
+
+    setupToolBox();
     // end
 
     m_projectFilesMode = new ProjectFileModel(this);
     m_projectFilesMode->setRootPath("");
     projectFilesWidget = new ProjectFilesWidget(m_projectFilesMode, m_projectFilesModelMenu, this);
-    addDockWidget(Qt::LeftDockWidgetArea, projectFilesWidget);
+    addDockWidget(Qt::RightDockWidgetArea, projectFilesWidget);
     scenes.append(new DiagramScene(m_itemMenu, this));
     scenes.first()->name = "Test tab";
     ui->tabWidget->addTab(new QGraphicsView(scenes.first()), scenes.first()->name);
@@ -39,7 +48,7 @@ void MainWindow::setupMenus()
 
 void MainWindow::setupActions()
 {
-    QAction *action = new QAction(tr("New file"), this);
+    QAction *action = new QAction(tr("Save"), this);
     action->setIcon(QIcon(":/images/save.png"));
     m_projectFilesModelMenu->addAction(action);
 }
@@ -69,22 +78,22 @@ DiagramScene* MainWindow::activeScene()
     return scenes.first();
 }
 
-
-void MainWindow::createToolBox()
+void MainWindow::setupToolBox()
 {
     toolboxButtonGroup = new QButtonGroup(this);
     toolboxButtonGroup->setExclusive(false);
     connect(toolboxButtonGroup, SIGNAL(buttonClicked(int)),
             this, SLOT(toolboxButtonGroupClicked(int)));
-    /*QGridLayout *layout = new QGridLayout;
-    layout->addWidget(createCellWidget(tr("Conditional"),
-                               DiagramItem::Conditional), 0, 0);
-    layout->addWidget(createCellWidget(tr("Process"),
-                      DiagramItem::Step),0, 1);
-    layout->addWidget(createCellWidget(tr("Input/Output"),
-                      DiagramItem::Io), 1, 0);
-//! [21]
 
+
+
+
+    QGridLayout *layout = new QGridLayout;
+    layout->addWidget(new ElementToolButton(QPixmap(), toolboxButtonGroup, "Prvy Button", this));
+
+    palleteWidget->ui->modelPage->setLayout(layout);
+//! [21]
+/*
     QToolButton *textButton = new QToolButton;
     textButton->setCheckable(true);
     buttonGroup->addButton(textButton, InsertTextButton);

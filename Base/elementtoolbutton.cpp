@@ -3,10 +3,10 @@
 #include <QGridLayout>
 #include <QLabel>
 
-ElementToolButton::ElementToolButton(DiagramItem *diagramItem, QButtonGroup *buttonGroup, QWidget *parent) :
+ElementToolButton::ElementToolButton(const QPixmap &image, QButtonGroup *buttonGroup, const QString &text, QWidget *parent) :
     QWidget(parent)
 {
-    QIcon icon(diagramItem->image());
+    QIcon icon(image);
 
     QToolButton *button = new QToolButton(this);
     button->setIcon(icon);
@@ -16,9 +16,8 @@ ElementToolButton::ElementToolButton(DiagramItem *diagramItem, QButtonGroup *but
 
     QGridLayout *layout = new QGridLayout;
     layout->addWidget(button, 0, 0, Qt::AlignHCenter);
-    //TODO:TEXT
-    layout->addWidget(new QLabel("text"), 1, 0, Qt::AlignCenter);
 
+    layout->addWidget(new QLabel(text), 1, 0, Qt::AlignCenter);
 
     this->setLayout(layout);
 }
