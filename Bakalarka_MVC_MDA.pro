@@ -21,7 +21,9 @@ SOURCES += main.cpp\
     Scene/arrow.cpp \
     Widgets/palletewidget.cpp \
     Base/elementtoolbutton.cpp \
-    Scene/statebox.cpp
+    Scene/statebox.cpp \
+    Wizards/newprojectwizard.cpp \
+    Wizards/newprojectpage.cpp
 
 HEADERS  += mainwindow.h \
     Base/datatype.h \
@@ -33,11 +35,15 @@ HEADERS  += mainwindow.h \
     Scene/arrow.h \
     Widgets/palletewidget.h \
     Base/elementtoolbutton.h \
-    Scene/statebox.h
+    Scene/statebox.h \
+    Wizards/newprojectwizard.h \
+    Wizards/newprojectpage.h
 
 FORMS    += mainwindow.ui \
     Widgets/projectfileswidget.ui \
-    Widgets/palletewidget.ui
+    Widgets/palletewidget.ui \
+    Wizards/newprojectwizard.ui \
+    Wizards/newprojectpage.ui
 
 RESOURCES += \
     images.qrc

@@ -92,8 +92,8 @@ void MainWindow::setupToolBox()
     layout->addWidget(new ElementToolButton(QPixmap(), toolboxButtonGroup, "Prvy Button", this));
 
     palleteWidget->ui->modelPage->setLayout(layout);
-//! [21]
-/*
+    //! [21]
+    /*
     QToolButton *textButton = new QToolButton;
     textButton->setCheckable(true);
     buttonGroup->addButton(textButton, InsertTextButton);
@@ -140,4 +140,15 @@ void MainWindow::setupToolBox()
     toolBox->setMinimumWidth(itemWidget->sizeHint().width());
     toolBox->addItem(itemWidget, tr("Basic Flowchart Shapes"));
     toolBox->addItem(backgroundWidget, tr("Backgrounds"));*/
+}
+
+void MainWindow::on_actionNew_Project_triggered()
+{
+    /*if (newProjectWizard)
+    {
+        delete newProjectWizard;
+    }*/
+
+    newProjectWizard = new NewProjectWizard(this);
+    newProjectWizard->show();
 }

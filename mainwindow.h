@@ -8,6 +8,7 @@
 #include "Scene/diagramscene.h"
 #include <QButtonGroup>
 #include "Widgets/palletewidget.h"
+#include "Wizards/newprojectwizard.h"
 
 namespace Ui {
 class MainWindow;
@@ -32,6 +33,7 @@ private:
     ProjectFilesWidget *projectFilesWidget;
     PalleteWidget *palleteWidget;
     ProjectFileModel *m_projectFilesMode;
+    NewProjectWizard *newProjectWizard;
 
     QButtonGroup *toolboxButtonGroup;
     QMenu *m_projectFilesModelMenu;
@@ -39,6 +41,7 @@ private:
 
 private slots:
     void toolboxButtonGroupClicked(int id);
+    void on_actionNew_Project_triggered();
 };
 
 #endif // MAINWINDOW_H
